@@ -6,7 +6,8 @@ import csv
 import os
 
 # Add a variable to load a file from a path.
-file_to_load = os.path.join("Resources", "election_results.csv")
+file_to_load = "/Users/nozi/Desktop/M3/Starter_Code/Resources/election_results.csv"
+#file_to_load = os.path.join("..","Resources", "election_results.csv")
 # Add a variable to save the file to a path.
 file_to_save = os.path.join("analysis", "election_analysis.txt")
 
@@ -67,8 +68,8 @@ with open(file_to_load) as election_data:
 
         # 4a: Write an if statement that checks that the
         # county does not match any existing county in the county list.
-         if county_name not in county_list:
-        county_list.append(county_name)
+        if county_name not in county_list:
+            county_list.append(county_name)
 
 
             # 4b: Add the existing county to the list of counties.
@@ -80,7 +81,7 @@ with open(file_to_load) as election_data:
 
 
         # 5: Add a vote to that county's vote count.
-         county_votes[county_name] += 1
+        county_votes[county_name] += 1
 
 
 
@@ -103,7 +104,7 @@ with open(file_to_save, "w") as txt_file:
 
 
         # 6b: Retrieve the county vote count.
-         county_votes = county_dict[county_name]
+        county_votes = county_dict[county_name]
 
 
         # 6c: Calculate the percentage of votes for the county.
@@ -112,16 +113,16 @@ with open(file_to_save, "w") as txt_file:
 
          # 6d: Print the county results to the terminal.
         county_results = f"{county_name}: {vote_percentage:.1f}% ({votes:,})"
-            print(county_results)
+        print(county_results)
             
 
          # 6e: Save the county votes to a text file.
-         txt_file.write(county_results + "\n")
+        txt_file.write(county_results + "\n")
 
          # 6f: Write an if statement to determine the winning county and get its vote count.
-         if (county_votes_count > winning_county_votes):
-        winning_county_votes = county_votes_count
-        winning_county = county_name
+        if (county_votes_count > winning_county_votes):
+            winning_county_votes = county_votes_count
+            winning_county = county_name
 
 
 
